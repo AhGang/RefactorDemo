@@ -20,7 +20,6 @@ public class GildedRose {
                     updateBACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERTQuality(items[i]);
                     break;
                 case SULFURAS_HAND_OF_RAGNAROS:
-                    updateSULFURAS_HAND_OF_RAGNAROSQuality(items[i]);
                     break;
                 default:
                     updateOthersQuality(items[i]);
@@ -38,9 +37,6 @@ public class GildedRose {
         item.sellIn -= 1;
     }
 
-    private void updateSULFURAS_HAND_OF_RAGNAROSQuality(Item item) {
-    }
-
     private void updateBACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERTQuality(Item item) {
         if (item.quality < 50) {
             item.quality += 1;
@@ -49,9 +45,10 @@ public class GildedRose {
             }
         }
         item.sellIn -= 1;
-
         if (item.sellIn < 0) {
             item.quality = 0;
+        }else{
+
         }
     }
 
@@ -64,24 +61,6 @@ public class GildedRose {
         }
         item.sellIn -= 1;
     }
-
-    private boolean isNameNotEqualBACKSTAGE(Item item, String backstagePassesToATafkal80EtcConcert) {
-        return !item.name.equals(backstagePassesToATafkal80EtcConcert);
-    }
-
-    private boolean isNameNotEqualAGED(Item item, String agedBrie) {
-        return !item.name.equals(agedBrie);
-    }
-
-    private boolean isNameNotEqualSULFURAS(Item item, String sulfurasHandOfRagnaros) {
-        return !item.name.equals(sulfurasHandOfRagnaros);
-    }
-
-    private boolean isNameNotEqualAGED_BRIEOrBACKSTAGE(Item item) {
-        return !item.name.equals(AGED_BRIE)
-                && !item.name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT);
-    }
-
     private void addQualityWhenNameEqualsBACKSTAGE(Item item) {
         if (item.quality < 50) {
             if (item.sellIn < 6) {
