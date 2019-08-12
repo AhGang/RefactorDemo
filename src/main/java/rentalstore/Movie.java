@@ -8,9 +8,23 @@ public class Movie {
     private String title;
     private int priceCode;
 
-    public Movie(String title, int priceCode) {
+    public Movie(String title,int priceCode) {
         this.title = title;
         this.priceCode = priceCode;
+    }
+
+    public double getMovieType(int dayRented) {
+        double thisAmount = 0;
+
+        switch (this.getPriceCode()) {
+            case Movie.REGULAR:
+                return new RegularStrategy().getAmount(dayRented);
+            case Movie.NEW_RELEASE:
+                return new NewReleaseStrategy().getAmount(dayRented);
+            case Movie.CHILDRENS:
+                return new ChildrenStrategy().getAmount(dayRented);
+        }
+        return thisAmount;
     }
 
     public int getPriceCode() {
