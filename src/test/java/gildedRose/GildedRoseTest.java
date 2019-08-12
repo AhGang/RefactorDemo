@@ -152,13 +152,13 @@ public class GildedRoseTest {
     @Test
     public void should_return_updateQualityString_given_a_item_test_Negative1_1() {
         //given
-        Item item = new Item("Test",-1,1);
+        Item item = new Item("Test",-1,5);
         Item[] items = {item};
         GildedRose gildedRose = new GildedRose(items);
         //when
         gildedRose.updateQuality();
         //then
-        assertEquals(gildedRose.items[0].toString(),"Test, -2, 0");
+        assertEquals(gildedRose.items[0].toString(),"Test, -2, 3");
     }
     @Test
     public void should_return_updateQualityString_given_a_item_test_Negative1_Negative1() {
